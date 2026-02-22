@@ -13,6 +13,7 @@ Colección de [Agent Skills](https://agentskills.io/) — formato abierto para e
 | [persistent-agents-orchestrator](#persistent-agents-orchestrator) | Orquestación de agentes persistentes en Docker + VPN | Infraestructura |
 | [proton-suite](#proton-suite) | Automatización de Proton Mail/Calendar/Drive/Pass/Docs | Productividad |
 | [protonvpn-wireguard](#protonvpn-wireguard) | Gestión de configs WireGuard desde panel Proton VPN | VPN / Seguridad |
+| [excalidraw-assistant](#excalidraw-assistant) | Diagramas hand-drawn via Excalidraw MCP server | Diagramas / Visual |
 
 ---
 
@@ -178,6 +179,32 @@ Automatiza Proton Mail, Calendar, Drive, Pass, Docs y Sheets mediante browser au
 Gestiona configs WireGuard desde el panel web de Proton VPN: crear, rotar, descargar, etiquetar y revocar perfiles.
 
 [Ver documentación completa →](protonvpn-wireguard/SKILL.md)
+
+---
+
+## Excalidraw Assistant
+
+Crea diagramas estilo hand-drawn usando el [Excalidraw MCP](https://github.com/excalidraw/excalidraw-mcp) server. Flowcharts, arquitectura, mind maps, diagramas de secuencia y más.
+
+### Configuración
+
+```json
+{
+  "mcpServers": {
+    "excalidraw": { "url": "https://mcp.excalidraw.com" }
+  }
+}
+```
+
+### Ejemplos
+
+```
+"Draw an architecture diagram: user → load balancer → 3 API servers → PostgreSQL"
+"Create a flowchart for user registration"
+"Mind map for project planning"
+```
+
+[Ver documentación completa →](excalidraw-assistant/SKILL.md)
 
 ---
 
