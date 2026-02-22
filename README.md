@@ -13,7 +13,6 @@ Colección de [Agent Skills](https://agentskills.io/) — formato abierto para e
 | [persistent-agents-orchestrator](#persistent-agents-orchestrator) | Orquestación de agentes persistentes en Docker + VPN | Infraestructura |
 | [proton-suite](#proton-suite) | Automatización de Proton Mail/Calendar/Drive/Pass/Docs | Productividad |
 | [protonvpn-wireguard](#protonvpn-wireguard) | Gestión de configs WireGuard desde panel Proton VPN | VPN / Seguridad |
-| [wireguard-panel](#wireguard-panel) | Gestión de perfiles WireGuard desde panel web admin | VPN / Seguridad |
 
 ---
 
@@ -181,12 +180,6 @@ Gestiona configs WireGuard desde el panel web de Proton VPN: crear, rotar, desca
 [Ver documentación completa →](protonvpn-wireguard/SKILL.md)
 
 ---
-
-## WireGuard Panel
-
-Gestiona perfiles WireGuard desde un panel web admin genérico: crear, editar, revocar, descargar configs y QR.
-
-[Ver documentación completa →](wireguard-panel/SKILL.md)
 
 ---
 
