@@ -1,6 +1,6 @@
 # ZK-Skills
 
-Colección de skills para [Kimi Code CLI](https://github.com/moonshot-ai/Kimi-Chat) - Capacidades especializadas para automatización y productividad.
+Colección de [Agent Skills](https://agentskills.io/) — formato abierto para extender agentes de IA con capacidades especializadas. Compatible con Cursor, Claude Code, Gemini CLI, VS Code, OpenAI Codex, y cualquier herramienta que soporte el estándar.
 
 ## Skills Disponibles
 
@@ -8,6 +8,12 @@ Colección de skills para [Kimi Code CLI](https://github.com/moonshot-ai/Kimi-Ch
 |-------|-------------|-----------|
 | [browser-control](#browser-control) | Control completo de navegadores web con sistema de recipes | Automatización |
 | [ssh-sheller](#ssh-sheller) | Gestión de servidores SSH, túneles y transferencia de archivos | DevOps |
+| [desktop-commander](#desktop-commander) | Operaciones de sistema via Desktop Commander MCP | Sistema |
+| [market-sentiment-analyzer](#market-sentiment-analyzer) | Análisis de sentimiento cripto desde feeds locales | Crypto / Data |
+| [persistent-agents-orchestrator](#persistent-agents-orchestrator) | Orquestación de agentes persistentes en Docker + VPN | Infraestructura |
+| [proton-suite](#proton-suite) | Automatización de Proton Mail/Calendar/Drive/Pass/Docs | Productividad |
+| [protonvpn-wireguard](#protonvpn-wireguard) | Gestión de configs WireGuard desde panel Proton VPN | VPN / Seguridad |
+| [wireguard-panel](#wireguard-panel) | Gestión de perfiles WireGuard desde panel web admin | VPN / Seguridad |
 
 ---
 
@@ -136,31 +142,63 @@ servers:
 
 ---
 
-## Instalación de Skills
+## Desktop Commander
 
-### Para Kimi Code CLI
+Ejecuta operaciones de sistema (archivos, procesos, comandos) a través de Desktop Commander MCP como fallback cuando las herramientas nativas del agente son insuficientes.
 
-```bash
-# Clonar el repositorio
-git clone https://github.com/ramgeart/zk-skills.git
+[Ver documentación completa →](desktop-commander/SKILL.md)
 
-# Instalar skills en el directorio de Kimi
-# Opción 1: Directorio de usuario
-mkdir -p ~/.kimi/skills
-cp -r zk-skills/browser-control ~/.kimi/skills/
-cp -r zk-skills/ssh-sheller ~/.kimi/skills/
+---
 
-# Opción 2: Directorio del proyecto
-mkdir -p .agents/skills
-cp -r zk-skills/browser-control .agents/skills/
-cp -r zk-skills/ssh-sheller .agents/skills/
-```
+## Market Sentiment Analyzer
 
-### Estructura de un Skill
+Analiza sentimiento de mercado cripto leyendo feeds unificados de un gateway de datos local. Detecta tendencias, noticias y señales de Binance Square.
+
+[Ver documentación completa →](market-sentiment-analyzer/SKILL.md)
+
+---
+
+## Persistent Agents Orchestrator
+
+Orquesta agentes de IA persistentes como stacks Docker Compose (VPN + UI) con aislamiento de red estricto, egress solo por VPN y estado declarativo en JSON.
+
+[Ver documentación completa →](persistent-agents-orchestrator/SKILL.md)
+
+---
+
+## Proton Suite
+
+Automatiza Proton Mail, Calendar, Drive, Pass, Docs y Sheets mediante browser automation. Lectura/envío de emails, gestión de eventos, archivos y credenciales.
+
+[Ver documentación completa →](proton-suite/SKILL.md)
+
+---
+
+## ProtonVPN WireGuard
+
+Gestiona configs WireGuard desde el panel web de Proton VPN: crear, rotar, descargar, etiquetar y revocar perfiles.
+
+[Ver documentación completa →](protonvpn-wireguard/SKILL.md)
+
+---
+
+## WireGuard Panel
+
+Gestiona perfiles WireGuard desde un panel web admin genérico: crear, editar, revocar, descargar configs y QR.
+
+[Ver documentación completa →](wireguard-panel/SKILL.md)
+
+---
+
+## Instalación
+
+### Formato Agent Skills (estándar abierto)
+
+Cada skill sigue la [especificación AgentSkills.io](https://agentskills.io/specification):
 
 ```
 skill-name/
-├── SKILL.md              # Documentación principal
+├── SKILL.md              # Documentación principal (frontmatter YAML + instrucciones)
 ├── scripts/              # Scripts ejecutables
 │   └── *.py
 ├── references/           # Documentación adicional
@@ -169,6 +207,17 @@ skill-name/
 │   └── *.yaml.example
 └── recipes/              # (browser-control) Recipes guardados
     └── *.json
+```
+
+### Uso con cualquier agente compatible
+
+```bash
+# Clonar el repositorio
+git clone https://github.com/ramgeart/zk-skills.git
+
+# Copiar skills al directorio de tu agente
+# Claude Code / Cursor / Gemini CLI / etc:
+cp -r zk-skills/<skill-name> .agents/skills/
 ```
 
 ## Contribuir
