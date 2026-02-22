@@ -1,0 +1,47 @@
+# SSH Sheller Configuration File
+# Copy this to sheller.yaml in the skill root or ~/.ssh/sheller.yaml
+#
+# SECURITY NOTES:
+# - 'key_file' is the PATH to the private key file, NEVER the key content
+# - Generate ed25519 keys with: ssh-keygen -t ed25519 -f ~/.ssh/mykey
+# - 'password' can be stored (optional) but key auth is recommended
+
+servers:
+  # Simple shorthand - just hostname (uses default SSH key and current user)
+  localhost:
+    host: 127.0.0.1
+  
+  # Basic configuration with SSH key (ed25519 recommended)
+  web-prod:
+    host: 192.168.1.100
+    user: ubuntu
+    key_file: ~/.ssh/id_ed25519
+  
+  # Non-standard SSH port
+  staging:
+    host: staging.example.com
+    user: deploy
+    port: 2222
+    key_file: ~/.ssh/staging_ed25519
+  
+  # Database server with keep-alive options
+  db-primary:
+    host: db.internal.company.com
+    user: postgres
+    key_file: ~/.ssh/db_key
+    options:
+      - ServerAliveInterval=60
+      - ServerAliveCountMax=3
+  
+  # Windows path example
+  windows-server:
+    host: 10.0.0.50
+    user: Administrator
+    key_file: C:/Users/YourName/.ssh/id_ed25519
+  
+  # Password authentication (not recommended, use keys when possible)
+  legacy:
+    host: old-server.company.com
+    user: admin
+    port: 22
+    password: mysecretpassword
