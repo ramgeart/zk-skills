@@ -54,11 +54,17 @@ python3 scripts/create-diagram.py --file elements.json --export
 python3 scripts/create-diagram.py --elements '[...]' --checkpoint abc123
 ```
 
-## Element Format Quick Reference
+## Element Format Source of Truth
 
-Full reference: [references/element-format.md](references/element-format.md)
+Use **exactly**: [references/element-format.md](references/element-format.md)
 
-Load the full reference with `read_me` or read `references/element-format.md` for offline access.
+This file is the canonical spec for element format, camera rules, palette, checkpoints, delete/restore patterns, dark mode, and examples. Do not simplify it, paraphrase it away, or invent alternative rules.
+
+Rules:
+1. Call `read_me` once per conversation.
+2. Then follow `references/element-format.md` exactly.
+3. Do not call `read_me` again in the same conversation.
+4. Always send `elements` to `create_view` as a JSON **string**.
 
 ### Key rules
 
